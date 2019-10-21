@@ -6,4 +6,5 @@
 
 <style lang="less" scoped>
 @import "./style/reset.css";
+@import "./style/transition/transition.less";
 </style>

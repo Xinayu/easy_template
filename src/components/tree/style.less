@@ -1,16 +1,65 @@
-.children-item {
-    margin-left: 40px;
+@tree-cls: tree;
 
-}
+.@{tree-cls}-box {
+    &.@{tree-cls}-root {
+        padding-left: 0;
+    }
 
-.item {
-    line-height: 25px;
-    padding: 5px 15px;
-    outline: 1px solid gray;
-    cursor: pointer;
-    transition: background 0.2s ease;
+    font-size: 12px;
+    padding-left: 16px;
 
-    &:hover {
-        background: aquamarine;
+    .@{tree-cls}-item {
+        position: relative;
+        line-height: 20px;
+
+        &:not(:last-child) {
+            padding-bottom: 15px;
+
+            &::before {
+                content: '';
+                width: 2px;
+                border-left: 1px solid gray;
+                height: 100%;
+                position: absolute;
+                top: 15px;
+                left: 10px;
+                padding-bottom: 15px;
+                z-index: -1;
+            }
+        }
+    }
+
+    .@{tree-cls}-line {
+        user-select: none;
+        transition: background 0.2s ease;
+        cursor: pointer;
+
+        &:hover {
+            background: #d2eafb;
+        }
+    }
+
+    .@{tree-cls}-line-active {
+        background: #d2eafb;
+    }
+
+    .@{tree-cls}-type {
+        width: 13px;
+        height: 13px;
+        display: inline-block;
+        vertical-align: text-bottom;
+        margin: 0 5px;
+
+        &.@{tree-cls}-type-folder {
+            background: white url(../../assets/folder.png) no-repeat center /100%;
+        }
+
+        &.@{tree-cls}-type-file {
+            background: white url(../../assets/file.png) no-repeat center /100%;
+        }
+    }
+
+    .@{tree-cls}-name {
+        padding: 2px;
     }
 }

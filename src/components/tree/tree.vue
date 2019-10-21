@@ -1,18 +1,17 @@
 <template>
-    <div>
-        <div class="list-item" v-for="(item, index) in list" :key="index">
-            <div class="item-name">
+    <ul :class="treeCls">
+        <li :class="`${baseCls}-item`" v-for="(it,index) in treeList" :key="index">
+            <div :class="`${baseCls}-line`" @click="getTreeNode(it,treeLevel,index)">
                 <span
-                    class="item"
-                    @click="getFilePath(myLevel,index)"
-                >{{item.name}}--{{level}}--{{index+1}}</span>
+                    :class="[baseCls+'-type',it.children?baseCls+'-type-folder':baseCls+'-type-file']"
+                ></span>
+                <span :class="`${baseCls}-name`">{{it.name}}</span>
             </div>
-            <div v-if="item.children" class="children-item">
-                <!-- 反复调用自身 -->
-                <tree :list="item.children" :level="myLevel" />
-            </div>
-        </div>
-    </div>
+            <transition name="fade">
+                <tree v-if="it.children" :treeList="it.children" :level="treeLevel"></tree>
+            </transition>
+        </li>
+    </ul>
 </template>
 
 <script>
@@ -20,29 +19,38 @@ export default {
     name: "tree",
     data() {
         return {
-            myLevel: this.level
+            treeLevel: this.level
         };
     },
     props: {
-        list: {
-            type: Array
-        },
-        level: {
-            type: Number,
-            default: 0
+        treeList: { type: Array },
+        level: { type: Number, default: 0 },
+        baseCls: { type: String, default: "tree" }
+    },
+    created() {
+        this.treeLevel++;
+    },
+    computed: {
+        treeCls() {
+            if (this.treeLevel > 1) {
+                return [this.baseCls + "-box"];
+            } else {
+                return [this.baseCls + "-box", this.baseCls + "-root"];
+            }
         }
     },
     methods: {
-        getFilePath(level, index) {
-            console.log(level);
-
-            console.log("------------------------------------");
-            console.log(this.list[level]);
-            console.log("------------------------------------");
+        getTreeNode(node, deepLevel, index) {
+            console.log(`${deepLevel}-${index}`);
+        },
+        // 删除节点
+        removeTreeNode(node) {
+            console.log(node);
+        },
+        // 增加节点
+        addTreeNode(node) {
+            console.log(node);
         }
-    },
-    created() {
-        this.myLevel++;
     }
 };
 </script>

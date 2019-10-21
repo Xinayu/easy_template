@@ -49,3 +49,7 @@ td, th, ul, ol {
 #app, html, body {
     height: 100%;
 }
+
+*::before, *::after {
+    box-sizing: border-box;
+}
