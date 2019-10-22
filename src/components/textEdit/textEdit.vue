@@ -1,10 +1,15 @@
 <template>
     <div class="textEdit">
-        <codemirror ref="mycode" :value="curCode" :options="cmOptions" class="code"></codemirror>
+        <codemirror ref="mycode" :value="cmOptions.value" :options="cmOptions" class="code"></codemirror>
     </div>
 </template>
 
 <script>
+// vuex 辅助函数
+import { mapMutations } from "vuex";
+import { mapState } from "vuex";
+import { mapActions } from "vuex";
+
 // theme css
 import { codemirror } from "vue-codemirror";
 // 主题
@@ -16,21 +21,32 @@ export default {
     name: "textEdit",
     components: { codemirror },
     data() {
-        return {
-            curCode: "*{margin:0 auto}",
-            cmOptions: {
-                value: "",
-                mode: "text/css",
-                theme: "monokai",
-                readOnly: false,
-                indentWithTabs: true,
-                smartIndent: true,
-                lineNumbers: true,
-                showCursorWhenSelecting: true
-            }
-        };
+        return {};
     },
-    created() {}
+    created() {
+        var val = "*{*{margin：0;padding:0}//初始化时候加载的内容}";
+        this.changeVal(val);
+    },
+    methods: {
+        ...mapMutations({
+            reset: "code/resetState",
+            changeVal: "code/changeVal",
+            changeMode: "code/changeMode",
+            changeTheme: "code/changeTheme"
+        }),
+        // 改变编辑的内容
+        changeContent(val) {
+            this.curCode = val || "";
+        },
+        ...mapActions({
+            // resetAsync: "code/resetStateAsync"
+        })
+    },
+    computed: mapState({
+        cmOptions(state) {
+            return state.code;
+        }
+    })
 };
 </script>
 

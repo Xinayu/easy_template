@@ -1,19 +1,17 @@
 <template>
     <div class="home">
-        <div class="file-wrapper">
-            <tree :treeList="list" />
-        </div>
+        <treeView :list="list"></treeView>
         <div class="textEdit-wrapper">
-            <textEdit />
+            <textEdit></textEdit>
         </div>
     </div>
 </template>
 
 <script>
-import tree from "../../components/tree/tree";
+import treeView from "../../components/treeView/treeView";
 import textEdit from "../../components/textEdit/textEdit";
 export default {
-    components: { tree, textEdit },
+    components: { treeView, textEdit },
     data() {
         return {
             mes: "hello easyTemplate",
@@ -29,13 +27,15 @@ export default {
                                     children: [
                                         {
                                             name: "com.css",
-                                            tplSrc: "http://www.hao123.com"
+                                            tplSrc:
+                                                "https://cdn.bootcss.com/animate.css/3.7.2/animate.css"
                                         }
                                     ]
                                 },
                                 {
                                     name: "style.css",
-                                    tplSrc: "http://www.hao123.com"
+                                    tplSrc:
+                                        "https://cdn.bootcss.com/animate.css/3.7.2/animate.css"
                                 }
                             ]
                         },
@@ -44,13 +44,15 @@ export default {
                             children: [
                                 {
                                     name: "index.js",
-                                    tplSrc: "http://www.hao123.com"
+                                    tplSrc:
+                                        "https://cdn.bootcss.com/animate.css/3.7.2/animate.css"
                                 }
                             ]
                         },
                         {
                             name: "index.html",
-                            tplSrc: "http://www.hao123.com"
+                            tplSrc:
+                                "https://cdn.bootcss.com/animate.css/3.7.2/animate.css"
                         }
                     ]
                 }

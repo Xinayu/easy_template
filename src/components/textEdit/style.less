@@ -1,0 +1,50 @@
+.textEdit {
+    height: 100%;
+
+    .vue-codemirror {
+        height: 100%;
+    }
+
+    /deep/ .CodeMirror {
+        height: 100%;
+    }
+
+    /deep/ .CodeMirror-vscrollbar {
+        &::-webkit-scrollbar {
+            width: 16px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: rgba(255, 0, 0, 0);
+            border: 1px solid #464646;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: rgba(195, 195, 195, 0.3);
+        }
+    }
+
+    /deep/ .CodeMirror-scroll {
+        height: 100%;
+
+        span {
+            letter-spacing: 0.1em;
+            font-size: 13px;
+            font-family: initial;
+            line-height: 1em;
+        }
+
+        .CodeMirror-linenumber {
+            padding: 0 0.5em 0 0.5em;
+            text-align: center;
+            min-width: 20px;
+            border-right: 1px solid #5c5b5b;
+        }
+
+        .CodeMirror-line {
+            padding-left: 1.4em;
+        }
+
+
+    }
+}

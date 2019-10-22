@@ -15,6 +15,9 @@
 </template>
 
 <script>
+// vuex 辅助函数
+import { mapMutations } from "vuex";
+
 export default {
     name: "tree",
     data() {
@@ -40,16 +43,29 @@ export default {
         }
     },
     methods: {
+        ...mapMutations({
+            changeVal: "code/changeVal"
+        }),
         getTreeNode(node, deepLevel, index) {
-            console.log(`${deepLevel}-${index}`);
+            var path = node.tplSrc;
+            // Send a POST request
+            this.$axios({
+                method: "get",
+                url: path
+            })
+                .then(response => {
+                    this.changeVal(response.data);
+                })
+                .catch(error => {});
+            window.console.log(node.tplSrc, deepLevel, index);
         },
         // 删除节点
         removeTreeNode(node) {
-            console.log(node);
+            window.console.log(node);
         },
         // 增加节点
         addTreeNode(node) {
-            console.log(node);
+            window.console.log(node);
         }
     }
 };
