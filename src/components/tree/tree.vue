@@ -56,7 +56,7 @@ export default {
                 .then(response => {
                     this.changeVal(response.data);
                 })
-                .catch(error => {});
+                .catch(() => {});
             window.console.log(node.tplSrc, deepLevel, index);
         },
         // 删除节点
