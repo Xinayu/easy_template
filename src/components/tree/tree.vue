@@ -49,15 +49,15 @@ export default {
         getTreeNode(node, deepLevel, index) {
             var path = node.tplSrc;
             // Send a POST request
-            this.$axios({
-                method: "get",
-                url: path
-            })
-                .then(response => {
-                    this.changeVal(response.data);
-                })
-                .catch(() => {});
-            window.console.log(node.tplSrc, deepLevel, index);
+            // this.$axios({
+            //     method: "get",
+            //     url: path
+            // })
+            //     .then(response => {
+            //         this.changeVal(response.data);
+            //     })
+            //     .catch(() => {});
+            // window.console.log(node.tplSrc, deepLevel, index);
         },
         // 删除节点
         removeTreeNode(node) {

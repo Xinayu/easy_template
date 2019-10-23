@@ -6,11 +6,9 @@ import store from './vuex/store'
 // codemirror
 import VueCodeMirror from 'vue-codemirror'
 import 'codemirror/lib/codemirror.css'
-// axios
-import axios from 'axios'
 
 
-Vue.prototype.$axios = axios;
+
 
 Vue.use(VueCodeMirror)
 
