@@ -13,7 +13,20 @@ const home = {
 }
 
 
+// ------------ login
+const login = {
+    path: '/login',
+    name: 'login',
+    meta: {
+        title: '大虾请登录'
+    },
+    component: () => import('@/views/login/login.vue')
+}
+
+
+
 // ------------ 导出
 export const routes = [
-    home
+    home,
+    login
 ];

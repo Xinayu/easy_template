@@ -1,16 +1,42 @@
-body, dl, dd, ul, ol, h1, h2, h3, h4, h5, h6, p, form, header, section, article, footer {
+body,
+dl,
+dd,
+ul,
+ol,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+form,
+header,
+section,
+article,
+footer {
     margin: 0;
 }
 
-body, button, input, select, textarea {
+body,
+button,
+input,
+select,
+textarea {
     font: 12px/1.5 tahoma, '\5FAE\8F6F\96C5\9ED1', sans-serif
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-size: 100%
 }
 
-em, b {
+em,
+b {
     font-style: normal
 }
 
@@ -31,7 +57,10 @@ img {
     border: 0
 }
 
-button, input, select, textarea {
+button,
+input,
+select,
+textarea {
     font-size: 100%;
     outline: none
 }
@@ -41,15 +70,26 @@ table {
     border-spacing: 0
 }
 
-td, th, ul, ol {
+td,
+th,
+ul,
+ol {
     padding: 0;
     list-style-type: none;
 }
 
-#app, html, body {
+#app,
+html,
+body {
     height: 100%;
 }
 
-*::before, *::after {
+*::before,
+*::after {
     box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Belga';
+    src: url('./fonts/Belga.woff.ttf');
 }
