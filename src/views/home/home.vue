@@ -10,6 +10,9 @@
 <script>
 import treeView from "../../components/treeView/treeView";
 import textEdit from "../../components/textEdit/textEdit";
+
+import { login } from "../../axios/api/user.js";
+
 export default {
     components: { treeView, textEdit },
     data() {
@@ -59,7 +62,15 @@ export default {
             ]
         };
     },
-    created() {}
+    created() {
+        login(JSON.stringify({ name: "123" }))
+            .then(v => {
+                window.console.log(v);
+            })
+            .catch(err => {
+                window.console.log(err);
+            });
+    }
 };
 </script>
 <style lang="less" scoped>
